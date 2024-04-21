@@ -1,10 +1,10 @@
 import path from 'node:path';
-import type tss from 'typescript/lib/tsserverlibrary';
+import type ts from 'typescript/lib/tsserverlibrary';
 import type { PluginConfig } from '../types/helper';
 
 class TsModule {
-  private $ts: typeof tss | null;
-  private $tsInfo: tss.server.PluginCreateInfo | null;
+  private $ts: typeof ts | null;
+  private $tsInfo: ts.server.PluginCreateInfo | null;
   private $rootPath: string | null;
   private $config: PluginConfig | null;
   private $outputPath: string | null;
@@ -17,7 +17,7 @@ class TsModule {
     this.$outputPath = null;
   }
 
-  public setModule(typescript: typeof tss) {
+  public setModule(typescript: typeof ts) {
     this.$ts = typescript;
   }
 
@@ -29,7 +29,7 @@ class TsModule {
     return this.$ts;
   }
 
-  public setTsInfo(info: tss.server.PluginCreateInfo) {
+  public setTsInfo(info: ts.server.PluginCreateInfo) {
     this.$tsInfo = info;
   }
 

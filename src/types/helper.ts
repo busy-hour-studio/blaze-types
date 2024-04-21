@@ -1,6 +1,6 @@
-import type tss from 'typescript/lib/tsserverlibrary';
+import type ts from 'typescript/lib/tsserverlibrary';
 
-export type TsServer = typeof tss;
+export type TsServer = typeof ts;
 
 export interface CreatePlugin {
   typescript: TsServer;

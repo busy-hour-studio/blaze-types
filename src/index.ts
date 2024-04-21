@@ -1,14 +1,12 @@
-import ts from 'typescript/lib/tsserverlibrary';
 import { tsModule } from './utils/module';
+import { createPlugin } from './lib/create-plugin';
 import type { CreatePlugin } from './types/helper';
 
 function init(modules: CreatePlugin) {
   tsModule.setModule(modules.typescript);
 
   return {
-    create(info: ts.server.PluginCreateInfo) {
-      return info.languageService;
-    },
+    create: createPlugin,
   };
 }
 
