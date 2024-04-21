@@ -1,17 +1,31 @@
 {
   "name": "@busy-hour/blaze-types",
-  "source": "src/index.ts",
   "main": "dist/cjs/index.js",
   "types": "dist/types/index.d.ts",
   "module": "dist/esm/index.js",
-  "version": "1.0.0",
+  "type": "module",
+  "version": "0.0.0",
   "license": "MIT",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsx build.ts",
+    "copy:cjs.json": "cp ./package.cjs.json ./dist/cjs/package.json",
+    "postcopy:cjs.json": "cp ./package.cjs.json ./dist/types/package.json",
+    "postbuild": "pnpm copy:cjs.json",
+    "prepublish": "pnpm build",
+    "lint": "eslint src/**/*.{ts,tsx} --fix",
+    "release": "commit-and-tag-version",
+    "release:beta": "commit-and-tag-version --prerelease",
+    "postrelease": "pnpm publish --access public && git push --follow-tags",
+    "postrelease:beta": "pnpm publish --tag next --access public && git push --follow-tags",
+    "check-types": "tsc --project tsconfig.json",
+    "prepare": "husky install"
+  },
   "devDependencies": {
-    "@busy-hour/blaze": "^2.0.3",
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
     "@types/glob": "^8.1.0",
-    "@types/node": "^20.11.19",
+    "@types/node": "^20.12.7",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "arg": "^5.0.2",
@@ -35,7 +49,7 @@
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "@busy-hour/blaze": "^2.0.3"
+    "@busy-hour/blaze": "*"
   },
   "author": "Muhammad Firdaus Sati (https://github.com/krsbx)",
   "keywords": [
