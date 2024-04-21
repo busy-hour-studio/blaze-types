@@ -7,10 +7,11 @@ settings:
 importers:
 
   .:
-    devDependencies:
+    dependencies:
       '@busy-hour/blaze':
-        specifier: ^2.0.3
+        specifier: '*'
         version: 2.0.3
+    devDependencies:
       '@commitlint/cli':
         specifier: ^17.8.1
         version: 17.8.1
