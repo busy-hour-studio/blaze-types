@@ -14,6 +14,20 @@ export interface PluginConfig {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Random = any;
 
+export type RecordUnknown = Record<string, unknown>;
+
+export type RecordString = Record<string, string>;
+
+export type ReturnTypeOfLastFunction<T> = T extends (
+  ...args: Random[]
+) => infer R
+  ? Awaited<R>
+  : T extends Array<infer U>
+    ? U extends (...args: Random[]) => infer R
+      ? Awaited<R>
+      : never
+    : never;
+
 export interface ServiceInformation {
   importPath: string;
   fileName: string;
