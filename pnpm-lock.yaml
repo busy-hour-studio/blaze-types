@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@busy-hour/blaze':
         specifier: '*'
-        version: 2.0.3
+        version: 3.0.2
     devDependencies:
       '@commitlint/cli':
         specifier: ^17.8.1
@@ -97,11 +97,6 @@ packages:
   '@asamuzakjp/dom-selector@2.0.2':
     resolution: {integrity: sha512-x1KXOatwofR6ZAYzXRBL5wrdV0vwNxlTCK9NCuLqAzQYARqGcvFwiJA6A1ERuh+dgeA4Dxm3JBYictIes+SqUQ==}
 
-  '@asteasolutions/zod-to-openapi@6.4.0':
-    resolution: {integrity: sha512-8cxfF7AHHx2PqnN4Cd8/O8CBu/nVYJP9DpnfVLW3BFb66VJDnqI/CczZnkqMc3SNh6J9GiX7JbJ5T4BSP4HZ2Q==}
-    peerDependencies:
-      zod: ^3.20.2
-
   '@babel/code-frame@7.24.2':
     resolution: {integrity: sha512-y5+tLQyV8pg3fsiln67BVLD1P13Eg4lh5RW9mF0zUuvLrv9uIQ4MCL+CRT+FTsBlBjcIan6PGsLcBN0m3ClUyQ==}
     engines: {node: '>=6.9.0'}
@@ -114,8 +109,8 @@ packages:
     resolution: {integrity: sha512-Yac1ao4flkTxTteCDZLEvdxg2fZfz1v8M4QpaGypq/WPDqg3ijHYbDfs+LG5hvzSoqaSZ9/Z9lKSP3CjZjv+pA==}
     engines: {node: '>=6.9.0'}
 
-  '@busy-hour/blaze@2.0.3':
-    resolution: {integrity: sha512-l2DdK3PYBODzXnujopC0Zl1xVzenoRLlM8TZRKYx3DE61yEcQkoT7vM0YWHJ0Pheg3UsiIGHo7c23CimvIkXqQ==}
+  '@busy-hour/blaze@3.0.2':
+    resolution: {integrity: sha512-RQa8aFoEN1MV8dJJDNBzCA8V7IERpBvqvqwJU5fPknvuRp6WZbhFMGkWOyOyCd+IAy1Vka+BzNARX1pk+exubQ==}
 
   '@commitlint/cli@17.8.1':
     resolution: {integrity: sha512-ay+WbzQesE0Rv4EQKfNbSMiJJ12KdKTDzIt0tcK4k11FdsWmtwP0Kp1NWMOUswfIWo6Eb7p7Ln721Nx9FLNBjg==}
@@ -1966,9 +1961,6 @@ packages:
     resolution: {integrity: sha512-1FlR+gjXK7X+AsAHso35MnyN5KqGwJRi/31ft6x0M194ht7S+rWAvd7PHss9xSKMzE0asv1pyIHaJYq+BbacAQ==}
     engines: {node: '>=12'}
 
-  openapi3-ts@4.3.1:
-    resolution: {integrity: sha512-ha/kTOLhMQL7MvS9Abu/cpCXx5qwHQ++88YkUzn1CGfmM8JvCOG/4ZE6tRsexgXRFaoJrcwLyf81H2Y/CXALtA==}
-
   optionator@0.9.3:
     resolution: {integrity: sha512-JjCoypp+jKn1ttEFExxhetCKeJt9zhAgAve5FXHixTvFDW/5aEktX9bufBKLRRMdU7bNtpLfcGu94B3cdEJgjg==}
     engines: {node: '>= 0.8.0'}
@@ -2664,11 +2656,6 @@ snapshots:
       css-tree: 2.3.1
       is-potential-custom-element-name: 1.0.1
 
-  '@asteasolutions/zod-to-openapi@6.4.0(zod@3.22.5)':
-    dependencies:
-      openapi3-ts: 4.3.1
-      zod: 3.22.5
-
   '@babel/code-frame@7.24.2':
     dependencies:
       '@babel/highlight': 7.24.2
@@ -2683,9 +2670,8 @@ snapshots:
       js-tokens: 4.0.0
       picocolors: 1.0.0
 
-  '@busy-hour/blaze@2.0.3':
+  '@busy-hour/blaze@3.0.2':
     dependencies:
-      '@asteasolutions/zod-to-openapi': 6.4.0(zod@3.22.5)
       hono: 4.2.5
       zod: 3.22.5
 
@@ -4708,10 +4694,6 @@ snapshots:
   onetime@6.0.0:
     dependencies:
       mimic-fn: 4.0.0
-
-  openapi3-ts@4.3.1:
-    dependencies:
-      yaml: 2.4.1
 
   optionator@0.9.3:
     dependencies:
