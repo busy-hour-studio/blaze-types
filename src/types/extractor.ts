@@ -10,75 +10,92 @@ import type {
   ActionHook,
   AcceptedAfterHook,
 } from '@busy-hour/blaze';
-import type { Random, RecordUnknown, ReturnTypeOfLastFunction } from './helper';
+import type {
+  Random,
+  RecordString,
+  RecordUnknown,
+  ReturnTypeOfLastFunction,
+} from './helper';
 
-type AnyAction = Action<RecordUnknown, Random, Random, Random>;
+type AnyValidator = ActionValidator<
+  z.ZodObject<z.ZodRawShape>,
+  z.ZodObject<z.ZodRawShape>,
+  z.ZodObject<z.ZodRawShape>
+>;
+
+type AnyAction = Action<Random, Random, Random, Random, Random>;
 
 type AnyEvent = Event<RecordUnknown, Random>;
 
 export type ExtractActionValidator<
-  DefinedService extends Service,
-  ActionName extends keyof DefinedService['actions'],
-  ValidationName extends keyof ActionValidator,
-  DefaultType = ValidationName extends 'body' ? unknown : RecordUnknown,
+  S extends Service,
+  A extends keyof S['actions'],
+  V extends keyof AnyValidator,
+  D = V extends 'body'
+    ? unknown
+    : V extends 'headers'
+      ? RecordString
+      : RecordUnknown,
 > =
-  NonNullable<DefinedService['actions']> extends Actions
-    ? NonNullable<DefinedService['actions'][ActionName]> extends AnyAction
+  NonNullable<S['actions']> extends Actions
+    ? NonNullable<S['actions']>[A] extends AnyAction
       ? NonNullable<
-          // @ts-ignore
-          DefinedService['actions'][ActionName]['validator']
-        > extends ActionValidator<Random, Random, Random>
+          NonNullable<NonNullable<S['actions']>[A]>['validator']
+        > extends AnyValidator
         ? NonNullable<
-            // @ts-ignore
-            DefinedService['actions'][ActionName]['validator'][ValidationName]
+            NonNullable<
+              NonNullable<NonNullable<S['actions']>[A]>['validator']
+            >[V]
           > extends z.ZodObject<z.ZodRawShape>
           ? z.infer<
-              // @ts-ignore
-              DefinedService['actions'][ActionName]['validator'][ValidationName]
+              NonNullable<
+                NonNullable<
+                  NonNullable<NonNullable<S['actions']>[A]>['validator']
+                >[V]
+              >
             >
-          : DefaultType
-        : DefaultType
-      : DefaultType
-    : DefaultType;
+          : D
+        : D
+      : D
+    : D;
 
 export type ExtractActionHandler<
-  DefinedService extends Service,
-  ActionName extends keyof DefinedService['actions'],
+  S extends Service,
+  A extends keyof S['actions'],
 > =
-  NonNullable<DefinedService['actions']> extends Actions
-    ? NonNullable<DefinedService['actions'][ActionName]> extends AnyAction
-      ? // @ts-ignore
-        DefinedService['actions'][ActionName]['hooks'] extends ActionHook
+  NonNullable<S['actions']> extends Actions
+    ? NonNullable<S['actions']>[A] extends AnyAction
+      ? NonNullable<
+          NonNullable<NonNullable<S['actions']>[A]>['hooks']
+        > extends ActionHook
         ? NonNullable<
-            // @ts-ignore
-            DefinedService['actions'][ActionName]['hooks']['after']
-          > extends AcceptedAfterHook
+            NonNullable<NonNullable<S['actions']>[A]>['hooks']
+          >['after'] extends AcceptedAfterHook
           ? ReturnTypeOfLastFunction<
-              // @ts-ignore
-              DefinedService['actions'][ActionName]['hooks']['after']
+              NonNullable<
+                NonNullable<NonNullable<S['actions']>[A]>['hooks']
+              >['after']
             >
           : Awaited<
-              // @ts-ignore
-              ReturnType<DefinedService['actions'][ActionName]['handler']>
+              ReturnType<NonNullable<NonNullable<S['actions']>[A]>['handler']>
             >
-        : // @ts-ignore
-          Awaited<ReturnType<DefinedService['actions'][ActionName]['handler']>>
+        : Awaited<
+            ReturnType<NonNullable<NonNullable<S['actions']>[A]>['handler']>
+          >
       : unknown
     : unknown;
 
 export type ExtractEventValidator<
-  DefinedService extends Service,
-  EventName extends keyof DefinedService['events'],
+  S extends Service,
+  E extends keyof S['events'],
 > =
-  NonNullable<DefinedService['events']> extends Events
-    ? NonNullable<DefinedService['events'][EventName]> extends AnyEvent
+  NonNullable<S['events']> extends Events
+    ? NonNullable<S['events']>[E] extends AnyEvent
       ? NonNullable<
-          // @ts-ignore
-          DefinedService['events'][EventName]['validator']
+          NonNullable<NonNullable<S['events']>[E]>['validator']
         > extends z.ZodObject<z.ZodRawShape>
         ? z.infer<
-            // @ts-ignore
-            DefinedService['events'][EventName]['validator']
+            NonNullable<NonNullable<NonNullable<S['events']>[E]>['validator']>
           >
         : unknown
       : unknown
