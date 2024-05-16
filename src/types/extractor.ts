@@ -1,31 +1,17 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type {
-  Action,
   Actions,
-  ActionValidator,
-  Event,
   Events,
   Service,
   z,
-  ActionHook,
-  AcceptedAfterHook,
+  AnyAction,
+  AnyEvent,
+  AnyValidator,
+  AnyActionHook,
+  AnyAfterHook,
+  AnyAfterHookHandler,
 } from '@busy-hour/blaze';
-import type {
-  Random,
-  RecordString,
-  RecordUnknown,
-  ReturnTypeOfLastFunction,
-} from './helper';
-
-type AnyValidator = ActionValidator<
-  z.ZodObject<z.ZodRawShape>,
-  z.ZodObject<z.ZodRawShape>,
-  z.ZodObject<z.ZodRawShape>
->;
-
-type AnyAction = Action<Random, Random, Random, Random, Random>;
-
-type AnyEvent = Event<RecordUnknown, Random>;
+import type { RecordString, RecordUnknown } from './helper';
 
 export type ExtractActionValidator<
   S extends Service,
@@ -67,15 +53,35 @@ export type ExtractActionHandler<
     ? NonNullable<S['actions']>[A] extends AnyAction
       ? NonNullable<
           NonNullable<NonNullable<S['actions']>[A]>['hooks']
-        > extends ActionHook
+        > extends AnyActionHook
         ? NonNullable<
-            NonNullable<NonNullable<S['actions']>[A]>['hooks']
-          >['after'] extends AcceptedAfterHook
-          ? ReturnTypeOfLastFunction<
+            NonNullable<
+              NonNullable<NonNullable<S['actions']>[A]>['hooks']
+            >['after']
+          > extends AnyAfterHook
+          ? NonNullable<
               NonNullable<
                 NonNullable<NonNullable<S['actions']>[A]>['hooks']
               >['after']
-            >
+            > extends Array<infer U>
+            ? U extends AnyAfterHookHandler
+              ? Awaited<ReturnType<U>>
+              : unknown
+            : NonNullable<
+                  NonNullable<
+                    NonNullable<NonNullable<S['actions']>[A]>['hooks']
+                  >['after']
+                > extends AnyAfterHookHandler
+              ? Awaited<
+                  ReturnType<
+                    NonNullable<
+                      NonNullable<
+                        NonNullable<NonNullable<S['actions']>[A]>['hooks']
+                      >['after']
+                    >
+                  >
+                >
+              : unknown
           : Awaited<
               ReturnType<NonNullable<NonNullable<S['actions']>[A]>['handler']>
             >
