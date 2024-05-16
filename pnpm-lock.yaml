@@ -7,11 +7,10 @@ settings:
 importers:
 
   .:
-    dependencies:
-      '@busy-hour/blaze':
-        specifier: '*'
-        version: 3.0.3
     devDependencies:
+      '@busy-hour/blaze':
+        specifier: ^3.1.1
+        version: 3.1.1
       '@commitlint/cli':
         specifier: ^17.8.1
         version: 17.8.1
@@ -109,8 +108,8 @@ packages:
     resolution: {integrity: sha512-Yac1ao4flkTxTteCDZLEvdxg2fZfz1v8M4QpaGypq/WPDqg3ijHYbDfs+LG5hvzSoqaSZ9/Z9lKSP3CjZjv+pA==}
     engines: {node: '>=6.9.0'}
 
-  '@busy-hour/blaze@3.0.3':
-    resolution: {integrity: sha512-lq0X9izdMmSz3gA3Meod5X6mGaH+p/QqZsftkQrMKTVQxBWs13ZqZIYwPJ7Ad6RGMPbNhvqPh1z321CdhvRMPw==}
+  '@busy-hour/blaze@3.1.1':
+    resolution: {integrity: sha512-GpjXH8X72/fgeN4rzK9HpiDKc0+QOgR7GIWFB81CHSPnzMKDddqcELngTFYyBbvccRDW8BsgmB6N5O8Kmbbkhg==}
 
   '@commitlint/cli@17.8.1':
     resolution: {integrity: sha512-ay+WbzQesE0Rv4EQKfNbSMiJJ12KdKTDzIt0tcK4k11FdsWmtwP0Kp1NWMOUswfIWo6Eb7p7Ln721Nx9FLNBjg==}
@@ -2670,7 +2669,7 @@ snapshots:
       js-tokens: 4.0.0
       picocolors: 1.0.0
 
-  '@busy-hour/blaze@3.0.3':
+  '@busy-hour/blaze@3.1.1':
     dependencies:
       hono: 4.2.5
       zod: 3.22.5
