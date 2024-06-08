@@ -22,7 +22,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@busy-hour/blaze": "^3.1.1",
+    "@busy-hour/blaze": "^3.2.0",
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
     "@types/glob": "^8.1.0",
@@ -66,6 +66,28 @@
       "eslint --fix",
       "prettier --write"
     ]
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./extractor": {
+      "types": "./dist/types/types/extractor.d.ts",
+      "import": "./dist/esm/types/extractor.js",
+      "require": "./dist/cjs/types/extractor.js"
+    },
+    "./helper": {
+      "types": "./dist/types/types/helper.d.ts",
+      "import": "./dist/esm/types/helper.js",
+      "require": "./dist/cjs/types/helper.js"
+    },
+    "./internal": {
+      "types": "./dist/types/types/internal.d.ts",
+      "import": "./dist/esm/types/internal.js",
+      "require": "./dist/cjs/types/internal.js"
+    }
   },
   "files": [
     "dist",
