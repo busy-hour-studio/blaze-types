@@ -81,7 +81,11 @@ export type ExtractActionHandler<
                     >
                   >
                 >
-              : unknown
+              : Awaited<
+                  ReturnType<
+                    NonNullable<NonNullable<S['actions']>[A]>['handler']
+                  >
+                >
           : Awaited<
               ReturnType<NonNullable<NonNullable<S['actions']>[A]>['handler']>
             >
