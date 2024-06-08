@@ -20,6 +20,7 @@ export type ActionsExtractor<T extends Service> = {
   [A in keyof T['actions'] as `${ServiceNameExtractor<T>}.${A extends string ? A : never}`]: ActionEventCallRequest<
     ExtractActionValidator<T, A, 'header'>,
     ExtractActionValidator<T, A, 'params'>,
+    ExtractActionValidator<T, A, 'query'>,
     ExtractActionValidator<T, A, 'body'>,
     ExtractActionHandler<T, A>
   >;
@@ -28,6 +29,7 @@ export type ActionsExtractor<T extends Service> = {
 export type EventsExtractor<T extends Service> = {
   [E in keyof T['events'] as `${ServiceNameExtractor<T>}.${E extends string ? E : never}`]: ActionEventCallRequest<
     RecordString,
+    RecordUnknown,
     RecordUnknown,
     ExtractEventValidator<T, E>,
     unknown
