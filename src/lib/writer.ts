@@ -38,6 +38,10 @@ function generateDefinition(definitions: ServiceDefinition[]) {
   }
 
   return `${DISCLAIMER}
+/* eslint-disable prettier/prettier */
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 ${imports.join('\n')}
 
 declare module '@busy-hour/blaze' {

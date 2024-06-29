@@ -47,6 +47,8 @@ export function getServiceInformation(
       fileName = path.basename(path.join(servicePath, '..'));
     }
 
+    fileName = fileName.replace(/\.|-/g, '_');
+
     return {
       importPath: relativePath,
       fileName,
