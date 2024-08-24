@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.1](https://github.com/Busy-Hour-Studio/blaze-types/compare/v0.1.0...v0.1.1) (2024-06-29)
+
+
+### Bug Fixes
+
+* imported service name ([1f7bd33](https://github.com/Busy-Hour-Studio/blaze-types/commit/1f7bd33df9a8debc5fc98459f9a4422409373a6a))
+
 ## [0.1.0](https://github.com/Busy-Hour-Studio/blaze-types/compare/v0.0.5...v0.1.0) (2024-06-28)
 
 
