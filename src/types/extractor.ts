@@ -35,7 +35,7 @@ export type ExtractActionValidator<
           > extends
             | z.ZodObject<z.ZodRawShape>
             | z.ZodEffects<z.ZodObject<z.ZodRawShape>>
-          ? z.infer<
+          ? z.input<
               NonNullable<
                 NonNullable<
                   NonNullable<NonNullable<S['actions']>[A]>['validator']
@@ -110,7 +110,7 @@ export type ExtractEventValidator<
       ? NonNullable<
           NonNullable<NonNullable<S['events']>[E]>['validator']
         > extends z.ZodObject<z.ZodRawShape>
-        ? z.infer<
+        ? z.input<
             NonNullable<NonNullable<NonNullable<S['events']>[E]>['validator']>
           >
         : unknown
