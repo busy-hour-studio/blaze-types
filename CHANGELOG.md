@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.2](https://github.com/busy-hour-studio/blaze-types/compare/v0.1.1...v0.1.2) (2024-08-24)
+
+
+### Bug Fixes
+
+* validator infering ([889a67f](https://github.com/busy-hour-studio/blaze-types/commit/889a67fb2ac57cff029f15893e8cafa23a08f412))
+
 ## [0.1.1](https://github.com/Busy-Hour-Studio/blaze-types/compare/v0.1.0...v0.1.1) (2024-06-29)
 
 
