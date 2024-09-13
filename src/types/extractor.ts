@@ -32,9 +32,7 @@ export type ExtractActionValidator<
             NonNullable<
               NonNullable<NonNullable<S['actions']>[A]>['validator']
             >[V]
-          > extends
-            | z.ZodObject<z.ZodRawShape>
-            | z.ZodEffects<z.ZodObject<z.ZodRawShape>>
+          > extends z.ZodSchema
           ? z.input<
               NonNullable<
                 NonNullable<
@@ -65,7 +63,7 @@ export type ExtractActionHandler<
               NonNullable<
                 NonNullable<NonNullable<S['actions']>[A]>['hooks']
               >['after']
-            > extends Array<infer U>
+            > extends Array<infer U extends AnyAfterHook>
             ? U extends AnyAfterHookHandler
               ? Awaited<ReturnType<U>>
               : Awaited<
@@ -109,7 +107,7 @@ export type ExtractEventValidator<
     ? NonNullable<S['events']>[E] extends AnyEvent
       ? NonNullable<
           NonNullable<NonNullable<S['events']>[E]>['validator']
-        > extends z.ZodObject<z.ZodRawShape>
+        > extends z.ZodSchema
         ? z.input<
             NonNullable<NonNullable<NonNullable<S['events']>[E]>['validator']>
           >
