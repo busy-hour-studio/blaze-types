@@ -9,6 +9,7 @@ export interface CreatePlugin {
 export interface PluginConfig {
   servicePaths: string[];
   outputPath: string;
+  withTrpc: boolean;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -27,4 +28,6 @@ export interface ServiceDefinition {
   action: string;
   event: string;
   import: string;
+  trpcQuery: string;
+  trpcMutation: string;
 }

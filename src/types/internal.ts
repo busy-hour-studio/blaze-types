@@ -1,10 +1,15 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import type { ActionEventCallRequest, Service } from '@busy-hour/blaze';
+import type {
+  ActionEventCallRequest,
+  AnyAction,
+  Service,
+} from '@busy-hour/blaze';
 import type { RecordString, RecordUnknown } from './helper';
 import type {
   ExtractActionHandler,
   ExtractActionValidator,
   ExtractEventValidator,
+  ProcedureExtractor,
 } from './extractor';
 
 export type ServiceNameExtractor<T extends Service> =
@@ -33,5 +38,41 @@ export type EventsExtractor<T extends Service> = {
     RecordUnknown,
     ExtractEventValidator<T, E>,
     unknown
+  >;
+};
+
+export type TrpcMutationExtractor<T extends Service> = {
+  [A in keyof T['actions'] as T['actions'][A] extends AnyAction
+    ? // @ts-expect-error not-defined
+      NonNullable<T['actions'][A]['trpc']> extends 'mutation'
+      ? `${ServiceNameExtractor<T>}.${A extends string ? A : never}`
+      : never
+    : never]: ProcedureExtractor<
+    'mutation',
+    ActionEventCallRequest<
+      ExtractActionValidator<T, A, 'header'>,
+      ExtractActionValidator<T, A, 'params'>,
+      ExtractActionValidator<T, A, 'query'>,
+      ExtractActionValidator<T, A, 'body'>,
+      ExtractActionHandler<T, A>
+    >
+  >;
+};
+
+export type TrpcQueryExtractor<T extends Service> = {
+  [A in keyof T['actions'] as T['actions'][A] extends AnyAction
+    ? // @ts-expect-error not-defined
+      NonNullable<T['actions'][A]['trpc']> extends 'query'
+      ? `${ServiceNameExtractor<T>}.${A extends string ? A : never}`
+      : never
+    : never]: ProcedureExtractor<
+    'query',
+    ActionEventCallRequest<
+      ExtractActionValidator<T, A, 'header'>,
+      ExtractActionValidator<T, A, 'params'>,
+      ExtractActionValidator<T, A, 'query'>,
+      ExtractActionValidator<T, A, 'body'>,
+      ExtractActionHandler<T, A>
+    >
   >;
 };

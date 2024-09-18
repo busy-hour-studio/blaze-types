@@ -10,8 +10,15 @@ import type {
   AnyActionHook,
   AnyAfterHook,
   AnyAfterHookHandler,
+  ActionEventCallRequest,
+  ActionCallResult,
 } from '@busy-hour/blaze';
-import type { RecordString, RecordUnknown } from './helper';
+import type {
+  AnyRootConfig,
+  BuildProcedure,
+  ProcedureType,
+} from '@trpc/server';
+import type { Random, RecordString, RecordUnknown } from './helper';
 
 export type ExtractActionValidator<
   S extends Service,
@@ -114,3 +121,25 @@ export type ExtractEventValidator<
         : unknown
       : unknown
     : unknown;
+
+export type ProcedureExtractor<
+  P extends ProcedureType,
+  CR extends ActionEventCallRequest<Random, Random, Random, Random, Random>,
+> = BuildProcedure<
+  P,
+  {
+    _config: AnyRootConfig;
+    _ctx_out: Random;
+    // eslint-disable-next-line no-use-before-define
+    _input_in: Omit<CR, 'result'>;
+    // eslint-disable-next-line no-use-before-define
+    _input_out: Omit<CR, 'result'>;
+    _meta: Random;
+    // eslint-disable-next-line no-use-before-define
+    _output_in: ActionCallResult<CR['result']>;
+    // eslint-disable-next-line no-use-before-define
+    _output_out: ActionCallResult<CR['result']>;
+  },
+  // eslint-disable-next-line no-use-before-define
+  ActionCallResult<CR['result']>
+>;
