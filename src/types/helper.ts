@@ -9,7 +9,6 @@ export interface CreatePlugin {
 export interface PluginConfig {
   servicePaths: string[];
   outputPath: string;
-  withTrpc: boolean;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

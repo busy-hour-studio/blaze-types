@@ -59,9 +59,9 @@ declare module '@busy-hour/blaze' {
 
   ${events}
 
-  ${tsModule.getConfig().withTrpc ? trpcQuery : ''}
+  ${trpcQuery}
 
-  ${tsModule.getConfig().withTrpc ? trpcMutation : ''}
+  ${trpcMutation}
 }
 `;
 }
