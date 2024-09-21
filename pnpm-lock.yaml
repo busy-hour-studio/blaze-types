@@ -8,13 +8,13 @@ importers:
 
   .:
     dependencies:
+      '@busy-hour/blaze':
+        specifier: '>=4.0.0-3'
+        version: 4.0.0-3
       chokidar:
         specifier: ^3.6.0
         version: 3.6.0
     devDependencies:
-      '@busy-hour/blaze':
-        specifier: 3.3.0-2
-        version: 3.3.0-2
       '@commitlint/cli':
         specifier: ^17.8.1
         version: 17.8.1
@@ -115,9 +115,8 @@ packages:
     resolution: {integrity: sha512-Yac1ao4flkTxTteCDZLEvdxg2fZfz1v8M4QpaGypq/WPDqg3ijHYbDfs+LG5hvzSoqaSZ9/Z9lKSP3CjZjv+pA==}
     engines: {node: '>=6.9.0'}
 
-  '@busy-hour/blaze@3.3.0-2':
-    resolution: {integrity: sha512-zb5J/6dJg7Je69ffCmDLk67Y1sfOJOk+l1B174KWXkPpGie8uv9hawggLTpMr31crShc+OraZCMxF3J7VCRuyw==}
-    deprecated: Please use version 3.4 or higher. Older version may consists a lot of bugs and performances issues
+  '@busy-hour/blaze@4.0.0-3':
+    resolution: {integrity: sha512-isd1OZXjDHN+tBkWmnLlb1MpjMitsLa9yaSE33//ihhDIsDywMJQPoys+6b9ANaqdQOXt6lPyKDihrRZDculEA==}
 
   '@commitlint/cli@17.8.1':
     resolution: {integrity: sha512-ay+WbzQesE0Rv4EQKfNbSMiJJ12KdKTDzIt0tcK4k11FdsWmtwP0Kp1NWMOUswfIWo6Eb7p7Ln721Nx9FLNBjg==}
@@ -2704,7 +2703,7 @@ snapshots:
       js-tokens: 4.0.0
       picocolors: 1.0.0
 
-  '@busy-hour/blaze@3.3.0-2':
+  '@busy-hour/blaze@4.0.0-3':
     dependencies:
       hono: 4.6.1
       zod: 3.23.8

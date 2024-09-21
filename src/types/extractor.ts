@@ -11,7 +11,6 @@ import type {
   AnyAfterHook,
   AnyAfterHookHandler,
   ActionEventCallRequest,
-  ActionCallResult,
 } from '@busy-hour/blaze';
 import type {
   AnyRootConfig,
@@ -136,10 +135,10 @@ export type ProcedureExtractor<
     _input_out: Omit<CR, 'result'>;
     _meta: Random;
     // eslint-disable-next-line no-use-before-define
-    _output_in: ActionCallResult<CR['result']>;
+    _output_in: CR['result'];
     // eslint-disable-next-line no-use-before-define
-    _output_out: ActionCallResult<CR['result']>;
+    _output_out: CR['result'];
   },
   // eslint-disable-next-line no-use-before-define
-  ActionCallResult<CR['result']>
+  CR['result']
 >;
