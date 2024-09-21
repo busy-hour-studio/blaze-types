@@ -43,7 +43,7 @@ export type EventsExtractor<T extends Service> = {
 
 export type TrpcMutationExtractor<T extends Service> = {
   [A in keyof T['actions'] as T['actions'][A] extends AnyAction
-    ? // @ts-expect-error not-defined
+    ? // @ts-ignore
       NonNullable<T['actions'][A]['trpc']> extends 'mutation'
       ? `${ServiceNameExtractor<T>}.${A extends string ? A : never}`
       : never
@@ -61,7 +61,7 @@ export type TrpcMutationExtractor<T extends Service> = {
 
 export type TrpcQueryExtractor<T extends Service> = {
   [A in keyof T['actions'] as T['actions'][A] extends AnyAction
-    ? // @ts-expect-error not-defined
+    ? // @ts-ignore
       NonNullable<T['actions'][A]['trpc']> extends 'query'
       ? `${ServiceNameExtractor<T>}.${A extends string ? A : never}`
       : never

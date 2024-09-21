@@ -22,7 +22,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@busy-hour/blaze": "3.3.0-2",
+    "@busy-hour/blaze": ">=4.0.0-3",
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
     "@trpc/server": "^10.45.2",
@@ -50,10 +50,8 @@
     "tsx": "^4.7.1",
     "typescript": "^5.4.5"
   },
-  "peerDependencies": {
-    "@busy-hour/blaze": "*"
-  },
   "dependencies": {
+    "@busy-hour/blaze": ">=4.0.0-3",
     "chokidar": "^3.6.0"
   },
   "author": "Muhammad Firdaus Sati (https://github.com/krsbx)",
