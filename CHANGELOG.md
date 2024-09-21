@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.0-2](https://github.com/busy-hour-studio/blaze-types/compare/v0.2.0-1...v0.2.0-2) (2024-09-19)
+
+
+### Bug Fixes
+
+* remove withTrpc config ([a215ced](https://github.com/busy-hour-studio/blaze-types/commit/a215ced13b7ba1854b8d59b96a0e7e90fe3433cd))
+
+## [0.2.0-1](https://github.com/busy-hour-studio/blaze-types/compare/v0.2.0-0...v0.2.0-1) (2024-09-18)
+
+
+### Features
+
+* **rc:** trpc definitions supports ([9fe50c3](https://github.com/busy-hour-studio/blaze-types/commit/9fe50c3ef9f1bc7b6b962d83ec0e4868a20b40dd))
+
 ## [0.2.0-0](https://github.com/busy-hour-studio/blaze-types/compare/v0.1.1...v0.2.0-0) (2024-09-13)
 
 

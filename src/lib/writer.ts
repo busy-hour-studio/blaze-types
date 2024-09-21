@@ -15,10 +15,16 @@ function buildDefinition(info: ServiceInformation): ServiceDefinition {
   const event = `
     EventsExtractor<typeof ${info.fileName}>`;
   const imports = `import ${info.fileName} from '${info.importPath}';`;
+  const trpcQuery = `
+    TrpcQueryExtractor<typeof ${info.fileName}>`;
+  const trpcMutation = `
+    TrpcMutationExtractor<typeof ${info.fileName}>`;
 
   return {
     action,
     event,
+    trpcQuery,
+    trpcMutation,
     import: imports,
   };
 }
@@ -32,15 +38,19 @@ function generateDefinition(definitions: ServiceDefinition[]) {
   const events = isShouldExtend
     ? `export interface EventCallRecord extends ${definitions.map((def) => def.event).join(',')} {}`
     : `export interface EventCallRecord {}`;
+  const trpcQuery = isShouldExtend
+    ? `export interface TrpcQueryCallRecord extends ${definitions.map((def) => def.trpcQuery).join(',')} {}`
+    : '';
+  const trpcMutation = isShouldExtend
+    ? `export interface TrpcMutationCallRecord extends ${definitions.map((def) => def.trpcMutation).join(',')} {}`
+    : '';
 
   if (isShouldExtend) {
     imports.push(...definitions.map((def) => def.import));
   }
 
   return `${DISCLAIMER}
-/* eslint-disable prettier/prettier */
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable */
 
 ${imports.join('\n')}
 
@@ -48,6 +58,10 @@ declare module '@busy-hour/blaze' {
   ${actions}
 
   ${events}
+
+  ${trpcQuery}
+
+  ${trpcMutation}
 }
 `;
 }

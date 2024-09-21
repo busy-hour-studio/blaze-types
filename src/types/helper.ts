@@ -27,4 +27,6 @@ export interface ServiceDefinition {
   action: string;
   event: string;
   import: string;
+  trpcQuery: string;
+  trpcMutation: string;
 }

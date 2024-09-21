@@ -4,7 +4,7 @@
   "types": "dist/types/index.d.ts",
   "module": "dist/esm/index.js",
   "type": "module",
-  "version": "0.2.0-0",
+  "version": "0.2.0-2",
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
@@ -25,6 +25,7 @@
     "@busy-hour/blaze": "3.3.0-2",
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
+    "@trpc/server": "^10.45.2",
     "@types/glob": "^8.1.0",
     "@types/node": "^20.12.7",
     "@typescript-eslint/eslint-plugin": "^6.21.0",

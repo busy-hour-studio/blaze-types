@@ -8,5 +8,7 @@ export const IMPORTS = [
   `import type {
   ActionsExtractor,
   EventsExtractor,
+  TrpcMutationExtractor,
+  TrpcQueryExtractor
 } from '@busy-hour/blaze-types/internal';`,
 ];
