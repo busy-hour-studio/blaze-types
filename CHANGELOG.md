@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.1-0](https://github.com/busy-hour-studio/blaze-types/compare/v0.2.0...v0.2.1-0) (2024-10-18)
+
+
+### Features
+
+* use internal extractor ([cf618d0](https://github.com/busy-hour-studio/blaze-types/commit/cf618d0bce20361f9132f10827c316b01a6bc663))
+
+
+### Bug Fixes
+
+* pnpm lock version doesnt match ([936997f](https://github.com/busy-hour-studio/blaze-types/commit/936997f1fbe0b7ed8b156f76f61bd819b2fccdb4))
+
 ## [0.2.0](https://github.com/busy-hour-studio/blaze-types/compare/v0.2.0-3...v0.2.0) (2024-09-22)
 
 ## [0.2.0-3](https://github.com/busy-hour-studio/blaze-types/compare/v0.2.0-2...v0.2.0-3) (2024-09-21)
