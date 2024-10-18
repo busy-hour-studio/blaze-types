@@ -22,7 +22,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@busy-hour/blaze": ">=4.0.0-3",
+    "@busy-hour/blaze": ">=4.4.0-2",
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
     "@trpc/server": "^10.45.2",
@@ -51,7 +51,7 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "@busy-hour/blaze": ">=4.0.0-3",
+    "@busy-hour/blaze": ">=4.4.0-2",
     "chokidar": "^3.6.0"
   },
   "author": "Muhammad Firdaus Sati (https://github.com/krsbx)",
@@ -84,11 +84,6 @@
       "types": "./dist/types/types/helper.d.ts",
       "import": "./dist/esm/types/helper.js",
       "require": "./dist/cjs/types/helper.js"
-    },
-    "./internal": {
-      "types": "./dist/types/types/internal.d.ts",
-      "import": "./dist/esm/types/internal.js",
-      "require": "./dist/cjs/types/internal.js"
     }
   },
   "files": [

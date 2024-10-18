@@ -1,5 +1,11 @@
 import type ts from 'typescript/lib/tsserverlibrary';
 
+export type {
+  Random,
+  RecordString,
+  RecordUnknown,
+} from '@busy-hour/blaze/dist/types/types/common';
+
 export type TsServer = typeof ts;
 
 export interface CreatePlugin {
@@ -10,13 +16,6 @@ export interface PluginConfig {
   servicePaths: string[];
   outputPath: string;
 }
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Random = any;
-
-export type RecordUnknown = Record<string, unknown>;
-
-export type RecordString = Record<string, string>;
 
 export interface ServiceInformation {
   importPath: string;
