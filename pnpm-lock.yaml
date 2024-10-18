@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@busy-hour/blaze':
-        specifier: 4.4.0-2
+        specifier: '>=4.4.0-2'
         version: 4.4.0-2
       chokidar:
         specifier: ^3.6.0
