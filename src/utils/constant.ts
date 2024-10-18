@@ -10,5 +10,5 @@ export const IMPORTS = [
   EventsExtractor,
   TrpcMutationExtractor,
   TrpcQueryExtractor
-} from '@busy-hour/blaze-types/internal';`,
+} from '@busy-hour/blaze/types-extractor';`,
 ];
