@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.1-0](https://github.com/busy-hour-studio/blaze-types/compare/v0.2.0...v0.2.1-0) (2024-10-18)
+
 ## [0.2.0](https://github.com/busy-hour-studio/blaze-types/compare/v0.2.0-3...v0.2.0) (2024-09-22)
 
 ## [0.2.0-3](https://github.com/busy-hour-studio/blaze-types/compare/v0.2.0-2...v0.2.0-3) (2024-09-21)
